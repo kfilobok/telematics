@@ -1,0 +1,37 @@
+        <label class="input-label">
+            <span class="input-title">Введите сумму, которую хотите снять:</span>
+            <input
+                    class="input"
+                    type="number"
+                    size="30"
+                    min="1"
+                    name="input_sum" required>
+        </label>
+
+        <p></p>
+        <div class="form-group">
+            <div class="col-xs-offset-3 col-xs-9">
+                <input type="submit" class="btn btn-success" value="Готово">
+            </div>
+        </div>
+        <p></p>
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">Возможно ли снять введенную сумму:</label>
+            <div class="col-xs-7">
+                <input type="text" name="result" class="form-control" size="37" readonly placeholder={{ entry }}>
+            </div>
+        </div>
+        <p></p>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">Время потребовавшееся для вычисления:</label>
+            <div class="col-xs-7">
+                <input type="text" name="neededtime" class="form-control" size="37" readonly placeholder={{ time }}>
+            </div>
+        </div>
+        <p></p>
+        <label class="control-label col-xs-3">Номинал и количество требуемых купюр:</label>
+        <p></p>
+        <textarea id="story" name="story" rows="2" cols="210" readonly placeholder={{ listik }}></textarea>
