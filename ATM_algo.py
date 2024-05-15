@@ -2,13 +2,14 @@ import time
 
 
 def counter(needed):
-    sp = [5000, 2000, 1000, 500, 200, 100]
+    sp = sorted(set(needed), key=lambda x: x[1])
     answer = []
+
     for i in sp:
         x = needed.count(i)
         if x:
-            answer.append(f'{i}:{x}')
-    return ';'.join(answer)
+            answer.append(f'Кассета№{i[1]}({i[0]}):{x}')
+    return ';_'.join(answer)
 
 
 def mini_ATM(dano, input_sum):
@@ -21,9 +22,8 @@ def mini_ATM(dano, input_sum):
         for banknote in dano:
             temp = {}
             for summ in needed:
-                prom_summ = summ + banknote
+                prom_summ = summ + banknote[0]
                 if prom_summ == input_sum:
-                    print(needed[summ] + [banknote])
                     end = time.time() - start
                     return True, counter(needed[summ] + [banknote]), end
                 if prom_summ < input_sum and prom_summ not in needed:
@@ -31,3 +31,9 @@ def mini_ATM(dano, input_sum):
             needed = {**needed, **temp}
         end = time.time() - start
         return False, '', end
+
+
+# dano = [(200, 2), (500, 1), (200, 2), (200, 3)]
+# dano.sort(reverse=True, key=lambda x: x[0])
+# print(dano)
+# print(mini_ATM(dano, 600))

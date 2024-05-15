@@ -29,8 +29,8 @@ def result():
             state = request.form.get(f'state{i}')[0]
             nam = int(request.form.get(f'denomination{i}').split('_')[0])
             amount = request.form.get(f'remainder{i}', type=int)
-            if state == 'a':
-                dano += [nam] * amount
+            if state == 'a' and amount:
+                dano += [(nam, i)] * amount
 
         dano.sort(reverse=True)
         input_sum = request.form.get('input_sum', type=int)  # input_sum
